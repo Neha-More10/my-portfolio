@@ -1,4 +1,4 @@
-import './Project.css'
+import './project.css'
 
 function Projects() {
   const projects = [
