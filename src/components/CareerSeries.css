@@ -1,0 +1,493 @@
+/* ---------------- CAREER SERIES ---------------- */
+
+.career-section {
+  min-height: 100vh;
+  padding: 110px 6% 130px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 80% 10%, rgba(229, 9, 20, 0.1), transparent 28%),
+    #050505;
+}
+
+.career-heading {
+  max-width: 760px;
+  margin-bottom: 48px;
+}
+
+.career-heading h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  line-height: 1;
+}
+
+.career-heading > p:last-child {
+  max-width: 640px;
+  margin: 20px 0 0;
+  color: #a9a9a9;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.career-library {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.career-card {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+
+  isolation: isolate;
+  cursor: pointer;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.featured-career-card {
+  grid-column: 1 / -1;
+  min-height: 620px;
+}
+
+.career-card:hover {
+  z-index: 4;
+  transform: translateY(-8px) scale(1.015);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.65);
+}
+
+/* ---------------- CARD BACKGROUNDS ---------------- */
+
+.leicester-series {
+  background:
+    radial-gradient(
+      circle at 74% 30%,
+      rgba(255, 68, 68, 0.7),
+      transparent 24%
+    ),
+    linear-gradient(120deg, #350006, #970513 48%, #160004);
+}
+
+.sharva-series {
+  background:
+    radial-gradient(
+      circle at 76% 24%,
+      rgba(197, 113, 255, 0.65),
+      transparent 26%
+    ),
+    linear-gradient(135deg, #190324, #64148d 52%, #12021a);
+}
+
+.tcs-series {
+  background:
+    radial-gradient(
+      circle at 74% 24%,
+      rgba(56, 183, 255, 0.65),
+      transparent 26%
+    ),
+    linear-gradient(135deg, #001728, #075d91 52%, #00121f);
+}
+
+/* ---------------- DECORATIVE DATA PATTERN ---------------- */
+
+.career-card-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  opacity: 0.35;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+
+  background-size: 46px 46px;
+
+  mask-image: linear-gradient(to left, black, transparent 78%);
+  transition:
+    transform 1.1s ease,
+    opacity 0.4s ease;
+}
+
+.career-card-pattern::before,
+.career-card-pattern::after {
+  content: '';
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+}
+
+.career-card-pattern::before {
+  top: 70px;
+  right: 14%;
+}
+
+.career-card-pattern::after {
+  right: 4%;
+  bottom: 50px;
+  width: 110px;
+  height: 110px;
+}
+
+.career-card:hover .career-card-pattern {
+  opacity: 0.65;
+  transform: scale(1.08) rotate(2deg);
+}
+
+/* ---------------- OVERLAY ---------------- */
+
+.career-card-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 34px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.96) 0%,
+      rgba(0, 0, 0, 0.8) 42%,
+      rgba(0, 0, 0, 0.15) 80%
+    ),
+    linear-gradient(to top, rgba(0, 0, 0, 0.82), transparent 48%);
+}
+
+.career-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.series-label {
+  margin: 0;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+}
+
+.series-label::before {
+  content: 'N';
+  display: inline-grid;
+  place-items: center;
+
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+
+  border-radius: 3px;
+
+  background: #e50914;
+  color: #ffffff;
+
+  font-size: 0.85rem;
+  letter-spacing: normal;
+}
+
+.series-match {
+  margin: 0;
+  color: #5ee187;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ---------------- CARD CONTENT ---------------- */
+
+.career-card-content {
+  width: min(680px, 78%);
+  margin-top: auto;
+
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease;
+}
+
+.career-period {
+  margin: 0 0 12px;
+  color: #dadada;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.career-card h3 {
+  max-width: 720px;
+  margin: 0;
+
+  color: #ffffff;
+  font-size: clamp(2.1rem, 4vw, 4.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.career-card:not(.featured-career-card) h3 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+}
+
+.career-card h4 {
+  margin: 15px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 500;
+}
+
+.career-role {
+  margin: 12px 0 0;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.career-description {
+  max-width: 640px;
+  margin: 20px 0 0;
+
+  color: #d0d0d0;
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.career-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 22px;
+}
+
+.career-tags span {
+  padding: 7px 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.32);
+  color: #ffffff;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  backdrop-filter: blur(7px);
+}
+
+.explore-career-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 26px;
+  padding: 12px 20px;
+
+  border: 0;
+  border-radius: 5px;
+
+  background: #ffffff;
+  color: #000000;
+
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.explore-career-button:hover {
+  background: #e50914;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ---------------- EPISODE PANEL ---------------- */
+
+.career-episodes {
+  position: absolute;
+  top: 50%;
+  right: 34px;
+
+  width: min(340px, 35%);
+
+  padding: 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+
+  background: rgba(8, 8, 8, 0.82);
+  backdrop-filter: blur(12px);
+
+  opacity: 0;
+  transform: translateY(-42%) translateX(45px);
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+
+.career-card:hover .career-episodes {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.career-card:hover .career-card-content {
+  transform: translateX(-6px);
+}
+
+.career-episodes > p {
+  margin: 0 0 17px;
+
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+}
+
+.career-episodes ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.career-episodes li {
+  padding: 10px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: #cfcfcf;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.career-episodes li:last-child {
+  border-bottom: 0;
+}
+
+/* ---------------- ENTRANCE ANIMATION ---------------- */
+
+@keyframes career-card-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(45px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.career-card {
+  animation: career-card-entrance 0.8s ease both;
+}
+
+.career-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.career-card:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+/* ---------------- ACCESSIBILITY ---------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .career-card,
+  .career-card-pattern,
+  .career-card-content,
+  .career-episodes,
+  .explore-career-button {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 1050px) {
+  .career-card-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.94),
+        rgba(0, 0, 0, 0.62)
+      ),
+      linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  }
+
+  .career-card-content {
+    width: 100%;
+  }
+
+  .career-episodes {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .career-section {
+    padding: 90px 24px;
+  }
+
+  .career-library {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-career-card {
+    grid-column: auto;
+  }
+
+  .career-card,
+  .featured-career-card {
+    min-height: 570px;
+  }
+
+  .career-card-overlay {
+    padding: 26px;
+  }
+
+  .career-card h3,
+  .career-card:not(.featured-career-card) h3 {
+    font-size: clamp(2rem, 10vw, 3.2rem);
+  }
+}
+
+@media (max-width: 520px) {
+  .career-card,
+  .featured-career-card {
+    min-height: 620px;
+  }
+
+  .career-card-overlay {
+    padding: 22px;
+  }
+
+  .series-match {
+    display: none;
+  }
+
+  .career-description {
+    font-size: 0.9rem;
+  }
+
+  .career-tags span {
+    font-size: 0.68rem;
+  }
+}
